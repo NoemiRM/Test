@@ -5,9 +5,13 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import web.wiki.HelperClass;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
+
+import static org.junit.Assert.fail;
 
 /**
  * Created by PilarRM on 31/01/21
@@ -45,18 +49,44 @@ public class BookingPage extends PageObject {
         return divCompra.getText();
     }
 
-    public void selectNumberSuitCabins(String numCabin){
-        selectSuitCabins.selectByValue(numCabin);
+    public void searchCabin(String sNameCabin){
+        String sCabinNumber = HelperClass.getNumberCabin(sNameCabin);
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        WebElementFacade element = find("(//select[contains(@class,'selectRooms')])['"+sCabinNumber+"']").waitUntilEnabled();
+        if (element.isPresent()) {
+            js.executeScript("arguments[0].scrollIntoView(true);", element);
+        }else{
+            fail("Element not present while scrolling: " + element);
+        }
     }
 
-    public void selectNumberTwinCabins(String numCabin){
-        selectTwinBedCabins.selectByValue(numCabin);
+    public void selectQuantityOfCabin(String sNameCabin, int iNum){
+        String sCabinNumber = HelperClass.getNumberCabin(sNameCabin);
+        WebElementFacade element = find("(//select[contains(@class,'selectRooms')])['"+sCabinNumber+"']");
+        element.selectByValue(Integer.toString(iNum));
     }
 
-    public void selectNumberBunkCabins(String numCabin){
-        selectBunkBedCabins.selectByValue(numCabin);
+    public void selectNumberOfAdult(String sNameCabin, int iNum){
+        String sCabinNumber = HelperClass.getNumberCabin(sNameCabin);
+        WebElementFacade element = find("(//select[contains(@class,'baeRoomAdult1')])['"+sCabinNumber+"']");
+        element.selectByValue(Integer.toString(iNum));
     }
 
+    public void selectNumberOfChild(String sNameCabin, int iNum){
+        String sCabinNumber = HelperClass.getNumberCabin(sNameCabin);
+        WebElementFacade element = find("(//select[contains(@class,'baeRoomChild1')])['"+sCabinNumber+"']");
+        element.selectByValue(Integer.toString(iNum));
+    }
+
+    public void selectNext(){
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        WebElementFacade element = find("//input[@id='continuar_bae']").waitUntilEnabled();
+        if (element.isPresent()) {
+            js.executeScript("arguments[0].scrollIntoView(true);", element);
+        }else{
+            fail("Element not present while scrolling: " + element);
+        }
+    }
 
 
 }

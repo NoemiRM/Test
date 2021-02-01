@@ -55,9 +55,9 @@ public class SearchTripFeatureSteps {
         onboardingSteps.select_route(valuesOfSearch.get("ruta"));
         onboardingSteps.select_train(valuesOfSearch.get("tren"));
         onboardingSteps.enter_start_date_trip(
-                Integer.parseInt(startDate[1]),
-                startDate[2],
-                Integer.parseInt(startDate[3]));
+                Integer.parseInt(startDate[0]),
+                startDate[1],
+                Integer.parseInt(startDate[2]));
     }
 
     @And("Usuario selecciona (.*) como destino")

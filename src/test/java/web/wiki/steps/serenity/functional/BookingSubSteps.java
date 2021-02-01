@@ -1,5 +1,6 @@
 package web.wiki.steps.serenity.functional;
 
+import net.bytebuddy.build.ToStringPlugin;
 import net.thucydides.core.annotations.Step;
 import web.wiki.pages.BookingPage;
 
@@ -12,5 +13,30 @@ public class BookingSubSteps {
     @Step
     public void show_second_step_booking(){
         bookingPage.successfulSecondStep();
+    }
+
+    @Step
+    public void search_cabin(String sNameCabin){
+        bookingPage.searchCabin(sNameCabin);
+    }
+
+    @Step
+    public void select_number_of_cabin(String sNameCabin, int num){
+        bookingPage.selectQuantityOfCabin(sNameCabin, num);
+    }
+
+    @Step
+    public void select_number_of_adult(String sNameCabin, int num){
+        bookingPage.selectNumberOfAdult(sNameCabin, num);
+    }
+
+    @Step
+    public void select_number_of_child(String sNameCabin, int num){
+        bookingPage.selectNumberOfChild(sNameCabin, num);
+    }
+
+    @Step
+    public void next_continue_booking(){
+        bookingPage.selectNext();
     }
 }

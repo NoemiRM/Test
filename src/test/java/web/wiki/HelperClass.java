@@ -93,4 +93,21 @@ public class HelperClass {
         return monthName;
     }
 
+    public static String getNumberCabin(String sCabinName){
+        String sCabinNum = null;
+        switch (sCabinName) {
+            case "SUITE CABINS":
+                sCabinNum = "1";
+                break;
+            case "TWIN BED CABINS":
+                sCabinNum = "2";
+                break;
+            case "BUNK BED CABINS":
+                sCabinNum = "3";
+                break;
+        }
+
+        return sCabinNum;
+    }
+
 }
