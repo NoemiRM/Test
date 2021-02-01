@@ -1,0 +1,3 @@
+Para buscar un viaje según mi disponibilidad
+Como usuario
+Yo deseo buscar mi viaje
