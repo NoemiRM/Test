@@ -110,4 +110,20 @@ public class HelperClass {
         return sCabinNum;
     }
 
+    public static String getShortNameCabin(String sCabinName){
+        String sShortName = null;
+        switch (sCabinName) {
+            case "SUITE CABINS":
+                sShortName = "suite";
+                break;
+            case "TWIN BED CABINS":
+                sShortName = "twin";
+                break;
+            case "BUNK BED CABINS":
+                sShortName = "bunk";
+                break;
+        }
+
+        return sShortName;
+    }
 }

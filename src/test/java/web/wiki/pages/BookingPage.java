@@ -86,6 +86,7 @@ public class BookingPage extends PageObject {
         }else{
             fail("Element not present while scrolling: " + element);
         }
+        element.click();
     }
 
 
