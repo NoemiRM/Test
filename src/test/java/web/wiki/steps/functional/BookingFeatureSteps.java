@@ -35,8 +35,8 @@ public class BookingFeatureSteps {
         bookingSteps.select_number_of_adult(sNameCabin,nAdult);
     }
 
-    @And("Usuario selecciona (\\d+) niño en (.*)")
-    public void selectNumberOfChild(int nChild, String sNameCabin) {
+    @And("Usuario selecciona (.*) niño en (.*)")
+    public void selectNumberOfChild(String nChild, String sNameCabin) {
         bookingSteps.select_number_of_child(sNameCabin,nChild);
     }
 
@@ -51,6 +51,6 @@ public class BookingFeatureSteps {
         bookingSteps.search_cabin(valuesCabinType.get("nombre_cabina"));
         bookingSteps.select_number_of_cabin(valuesCabinType.get("nombre_cabina"), Integer.parseInt(valuesCabinType.get("cantidad_cabina")));
         bookingSteps.select_number_of_adult(valuesCabinType.get("nombre_cabina"), Integer.parseInt(valuesCabinType.get("numero_adultos")));
-        bookingSteps.select_number_of_child(valuesCabinType.get("nombre_cabina"), Integer.parseInt(valuesCabinType.get("numero_nino")));
+        bookingSteps.select_number_of_child(valuesCabinType.get("nombre_cabina"), valuesCabinType.get("numero_nino"));
     }
 }

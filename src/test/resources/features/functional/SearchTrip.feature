@@ -11,7 +11,7 @@ Feature: Search Trip
       | destino    | Cusco                   |
       | ruta       | Puno > Cusco            |
       | tren       | Belmond Andean Explorer |
-      | start_date | 2021 Jun 2              |
+      | start_date | 2021 June 2             |
     And Usuario solicita realizar busqueda
     Then El sistema muestra el paso número del proceso
 

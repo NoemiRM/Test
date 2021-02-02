@@ -31,8 +31,12 @@ public class BookingSubSteps {
     }
 
     @Step
-    public void select_number_of_child(String sNameCabin, int num){
-        bookingPage.selectNumberOfChild(sNameCabin, num);
+    public void select_number_of_child(String sNameCabin, String num){
+        if (!num.equals("0")){
+            bookingPage.selectNumberOfChild(sNameCabin, num);
+        }else {
+            System.out.println("No select ticket for child");
+        }
     }
 
     @Step

@@ -37,6 +37,7 @@ public class BookingPassengerFeatureSteps {
         //ArrayList<Object> lstDatesCodeVariable = new ArrayList<>();
 
         for (Map<String, String> passengerDataValues: passengersDataValuesList) {
+
             bookingPassengerSteps.put_name_passenger(
                     passengerDataValues.get("nombre_cabina"),
                     passengerDataValues.get("numero_cabina"),

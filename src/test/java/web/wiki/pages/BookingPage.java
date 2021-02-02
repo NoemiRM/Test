@@ -72,10 +72,10 @@ public class BookingPage extends PageObject {
         element.selectByValue(Integer.toString(iNum));
     }
 
-    public void selectNumberOfChild(String sNameCabin, int iNum){
+    public void selectNumberOfChild(String sNameCabin, String iNum){
         String sCabinNumber = HelperClass.getNumberCabin(sNameCabin);
         WebElementFacade element = find("(//select[contains(@class,'baeRoomChild1')])['"+sCabinNumber+"']");
-        element.selectByValue(Integer.toString(iNum));
+        element.selectByValue(iNum);
     }
 
     public void selectNext(){
